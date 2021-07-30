@@ -1,8 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const MkDn = require('./generateMarkdown.js');
-const generateMarkdown = require('./generateMarkdown.js');
+ const MkDn = require('./generateMarkdown.js');
+ const generateMarkdown = require('./generateMarkdown.js');
 
 inquirer
 .prompt([
@@ -16,43 +16,43 @@ inquirer
       message: 'Detail your Project',
       name: 'Description',
     },
-    {
-      type: 'input',
-      message: 'Fill out Table of Contents',
-      name: 'TOC',
-      choices: [
-          "Installation",
-          "Usage",
-          "License",
-          "Tests",
-          "Questions",
-      ]
-    },
+    // {
+    //   type: 'input',
+    //   message: 'Fill out Table of Contents',
+    //   name: 'TOC',
+    //   choices: [
+    //       "Installation",
+    //       "Usage",
+    //       "License",
+    //       "Tests",
+    //       "Questions",
+    //   ]
+    // },
     {
         type: 'input',
         message: 'What packages did you use in the project?',
         name: 'Installations',
     },
-    {
-        type: 'input',
-        message: 'What is an example of how your project can utilized?',
-        name: 'Usage',
-    },
+    // {
+    //     type: 'input',
+    //     message: 'What is an example of how your project can utilized?',
+    //     name: 'Usage',
+    // },
     {
         type: 'input',
         message: 'What licenses were used?',
         name: 'Licenses',
     },
-    {
-        type: 'input',
-        message: 'Instructions on how to contribute.',
-        name: 'Contributing',
-    },
-    {
-        type: 'input',
-        message: 'What tests have been run?',
-        name: 'Testing',
-    },
+    // {
+    //     type: 'input',
+    //     message: 'Instructions on how to contribute.',
+    //     name: 'Contributing',
+    // },
+    // {
+    //     type: 'input',
+    //     message: 'What tests have been run?',
+    //     name: 'Testing',
+    // },
     {
         type: 'input',
         message: 'Enter Email.',
@@ -82,11 +82,11 @@ This project is designed to offer a README template that the user is able to gen
 
 Click on below sections to move specifically to that README section.
 
-- Installation
-- Usage
-- License
-- Tests
-- Questions
+1. Installation
+2. Usage
+3. License
+4. Tests
+5. Questions
 
 
 ## Installation
@@ -124,7 +124,7 @@ Writing to a JSON document...
 ---
 
 ## License
-Need to add MIT function
+${Licenses}
 
 ## Tests
 See below video for walk thru
@@ -155,5 +155,5 @@ ${answers.Github}
 // TODO: Create a function to initialize app
 function init() {generateMarkdown}
 
-// Function call to initialize app
+// // Function call to initialize app
 init();
