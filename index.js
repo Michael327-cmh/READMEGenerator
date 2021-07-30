@@ -1,8 +1,5 @@
-// TODO: Include packages needed for this application
-const inquirer = require('inquirer');
+const inquirer = require('inquirer')
 const fs = require('fs');
- const MkDn = require('./generateMarkdown.js');
- const generateMarkdown = require('./generateMarkdown.js');
 
 inquirer
 .prompt([
@@ -16,43 +13,11 @@ inquirer
       message: 'Detail your Project',
       name: 'Description',
     },
-    // {
-    //   type: 'input',
-    //   message: 'Fill out Table of Contents',
-    //   name: 'TOC',
-    //   choices: [
-    //       "Installation",
-    //       "Usage",
-    //       "License",
-    //       "Tests",
-    //       "Questions",
-    //   ]
-    // },
     {
-        type: 'input',
+        type: 'input:expand',
         message: 'What packages did you use in the project?',
         name: 'Installations',
     },
-    // {
-    //     type: 'input',
-    //     message: 'What is an example of how your project can utilized?',
-    //     name: 'Usage',
-    // },
-    {
-        type: 'input',
-        message: 'What licenses were used?',
-        name: 'Licenses',
-    },
-    // {
-    //     type: 'input',
-    //     message: 'Instructions on how to contribute.',
-    //     name: 'Contributing',
-    // },
-    // {
-    //     type: 'input',
-    //     message: 'What tests have been run?',
-    //     name: 'Testing',
-    // },
     {
         type: 'input',
         message: 'Enter Email.',
@@ -82,18 +47,15 @@ This project is designed to offer a README template that the user is able to gen
 
 Click on below sections to move specifically to that README section.
 
-1. Installation
-2. Usage
-3. License
-4. Tests
-5. Questions
+1. [Installation]()
+2. [Usage]()
+3. [License]()
+4. [Tests]()
+5. [Questions]()
 
 
 ## Installation
 ${answers.Installations}
-
-npm init -y
-npm i inquirer
 
 ## Usage
 Example Code:
@@ -124,7 +86,8 @@ Writing to a JSON document...
 ---
 
 ## License
-${Licenses}
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 
 ## Tests
 See below video for walk thru
@@ -137,8 +100,8 @@ See below video for walk thru
 5. Create a new Pull Request
 
 ## Questions
-${answers.Email}
-${answers.Github}
+- Email: ${answers.Email}
+- Github URL: ${answers.Github}
 `
     fs.writeFile(filename, Readthis, (err) => {
         err ? console.error (err) : console.log("Writing to an md document...")
@@ -151,9 +114,3 @@ ${answers.Github}
 
       }
   });
-
-// TODO: Create a function to initialize app
-function init() {generateMarkdown}
-
-// // Function call to initialize app
-init();
